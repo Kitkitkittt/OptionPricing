@@ -21,7 +21,7 @@ If a `swarm-ready` skill is installed, load it. Otherwise execute the documented
 
 ## Repository starting point
 
-Read: [README.md](README.md).
+Read the [README](README.md), then distinguish the [Flask app](Scripts/app.py), the [React UI](Scripts/ui/package.json), and the illustrative [Black–Scholes](Fair_price_calculations/blackScholes.py) and [Monte Carlo](Fair_price_calculations/monteCarlo.py) scripts. The pricing scripts contain top-level Yahoo Finance examples; importing them is not an offline check.
 
 Continue an existing approved issue or a clearly scoped user objective after inspecting the source map below. If none is selected, return the smallest useful improvement and its verifier as the handoff; do not begin a portfolio-wide rewrite.
 
@@ -41,7 +41,23 @@ The base above is an inspection snapshot, not a permanent working branch. Refres
 
 ## Verification starting point
 
-No executable acceptance command was established by this bounded source inspection. Read `README.md` and record the narrowest existing check before implementation. Do not invent a `test` command or infer that the repository has no tests from this gap. For a documentation-only task, check links, factual source anchors and whitespace; do not build unrelated application code.
+From the repository root, check the pricing scripts and Flask entry for Python syntax without importing them or writing bytecode:
+
+```sh
+python3 - <<'PY'
+from pathlib import Path
+
+for name in (
+    'Fair_price_calculations/blackScholes.py',
+    'Fair_price_calculations/monteCarlo.py',
+    'Scripts/app.py',
+):
+    compile(Path(name).read_bytes(), name, 'exec')
+    print(f'Compiled {name}')
+PY
+```
+
+Expect exit 0 and three `Compiled` lines. Review local links and factual anchors for docs-only changes. This check does not exercise pricing results, the React render test, the Flask API, Yahoo Finance, or Firebase/Heroku. Do not start the app, import the examples, run the bundled `ngrok` binary, or contact those endpoints for this handoff.
 
 ## Required handoff result
 
