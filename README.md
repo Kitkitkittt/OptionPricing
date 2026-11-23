@@ -13,7 +13,8 @@
 ![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)
 <br />
 <br />
-The app is hosted on Firebase and the API server is hosted on Heroku. Please check out the running model [here](https://projectreward.herokuapp.com)
+This is a historical Firebase/Heroku demo; no hosted service is needed for the
+[offline source check and agent handoff](SWARM_READY.md#verification-starting-point).
 <br />
 <br />
 A software to shortlist and find the best options spread available for a given stock and help visualise it using payoff metric graphs. We have considered a lot of factors to make the suggestinos as sensible as possible and also tried to quantify the fair price using Black-Scholes. All data used is from Yahoo Finance.
